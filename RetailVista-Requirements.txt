@@ -1,4 +1,5 @@
 streamlit
+faker
 pandas
 numpy
 matplotlib
@@ -6,4 +7,4 @@ seaborn
 scikit-learn
 plotly
 prophet
-faker
+
