@@ -1,10 +1,9 @@
 streamlit
-faker
 pandas
 numpy
-matplotlib
 seaborn
-scikit-learn
+matplotlib
 plotly
+scikit-learn
 prophet
 
