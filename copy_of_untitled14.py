@@ -9,12 +9,9 @@ Original file is located at
 
 import pandas as pd #Installation and Importing
 import numpy as np
-from faker import Faker
 import random
 from datetime import datetime, timedelta
 
-fake = Faker() #Step 2: Define Basic Simulation Setup
-Faker.seed(42)
 random.seed(42)
 
 # Sample Store and Product list
