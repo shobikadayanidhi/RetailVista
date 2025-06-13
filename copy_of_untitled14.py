@@ -78,6 +78,7 @@ fig = px.bar(city_sales, x="City", y="Sales", color="City", text_auto='.2s',
 fig.show()
 
 # 2. Monthly Sales Trend (Interactive Line Plot)
+df['Date'] = pd.to_datetime(df['Date'], errors='coerce') 
 df['Month'] = df['Date'].dt.to_period('M')
 monthly_sales = df.groupby("Month")["Sales"].sum().reset_index()
 monthly_sales["Month"] = monthly_sales["Month"].astype(str)
