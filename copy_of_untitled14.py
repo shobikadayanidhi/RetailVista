@@ -181,7 +181,7 @@ plt.show()
 import pandas as pd #PHASE 3 FEATURUE ENGINEERING
 #STEP1 - DATETIME FEATURES
 df = pd.read_csv("supermarket_sales - Sheet1.csv")
-df['Date'] = pd.to_datetime(df['Date'], format="mixed", dayfirst = False)
+df['Date'] = pd.to_datetime(df['Date'], format="mixed", dayfirst = False , errors = 'coerce')
 df['Day'] = df['Date'].dt.day
 df['Month'] = df['Date'].dt.month
 df['Weekday'] = df['Date'].dt.day_name()
@@ -278,7 +278,7 @@ import pandas as pd
 df = pd.read_csv("supermarket_sales - Sheet1.csv")
 
 # Convert to datetime format
-df['Date'] = pd.to_datetime(df['Date'], format="mixed", dayfirst=False)
+df['Date'] = pd.to_datetime(df['Date'], format="mixed", dayfirst=False, errors = 'coerce')
 
 # Extract day of the week
 df['Day_of_Week'] = df['Date'].dt.day_name()
@@ -418,7 +418,7 @@ import seaborn as sns
 df = pd.read_csv('supermarket_sales - Sheet1.csv')
 
 # Step 3: Feature Engineering for Clustering
-df['Purchase_Hour'] = pd.to_datetime(df['Time']).dt.hour
+df['Purchase_Hour'] = pd.to_datetime(df['Time'], errors = 'coerce').dt.hour
 
 # Convert categorical to numeric for clustering
 df_cluster = df[['Sales', 'Product line', 'Payment', 'Purchase_Hour']].copy()
@@ -475,7 +475,7 @@ from sklearn.cluster import KMeans
 df = pd.read_csv("supermarket_sales - Sheet1.csv")
 
 # Preprocess time
-df['Time'] = pd.to_datetime(df['Time']).dt.hour
+df['Time'] = pd.to_datetime(df['Time'], errors='coerce').dt.hour
 
 # Aggregate features for clustering
 cluster_df = df.groupby('Invoice ID').agg({
