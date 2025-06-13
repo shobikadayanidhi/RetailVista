@@ -458,7 +458,8 @@ cluster_summary['Top Product'] = df.groupby('Customer_Segment')['Product line'].
 cluster_summary['Preferred Payment'] = df.groupby('Customer_Segment')['Payment'].agg(lambda x: x.mode()[0])
 
 print("📊 Customer Segments Summary:\n")
-display(cluster_summary)
+import streamline as st
+st.dataframe(cluster_summary.style.format("{:.2f}"))
 
 plt.figure(figsize=(10, 6)) #Visualizing customer segments
 sns.scatterplot(data=df, x='Sales', y='Purchase_Hour', hue='Customer_Segment', palette='Set2')
